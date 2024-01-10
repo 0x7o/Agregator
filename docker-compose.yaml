@@ -1,0 +1,50 @@
+version: "3.2"
+services:
+  db:
+    restart: always
+    image: postgres:12.0-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=z~LD<fq]xT9)b2BYC
+      - POSTGRES_DB=db
+    ports:
+      - "5432:5432"
+    network_mode: host
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.3.1
+    container_name: elasticsearch
+    environment:
+      - xpack.security.enabled=false
+      - discovery.type=single-node
+    volumes:
+      - elasticsearch-data:/var/lib/elasticsearch/data
+    ports:
+      - 9200:9200
+    network_mode: host
+
+  api:
+    restart: always
+    build: ./api
+    volumes:
+      - ./api:/app/api
+    ports:
+      - "80:80"
+    stdin_open: true
+    tty: true
+    depends_on:
+      - db
+    environment:
+      - DB_HOST=0.0.0.0
+      - DB_NAME=db
+      - DB_USER=user
+      - DB_PASS=z~LD<fq]xT9)b2BYC
+      - API_KEY=PLACE_YOUR_API_KEY
+      - SECRET_KEY=django-insecure-s6ws=i(cpsy0r72x$6&!l-6$vt0*1&6a_o4grrse7293^zwb!&
+    network_mode: host
+
+volumes:
+  postgres_data:
+  elasticsearch-data:

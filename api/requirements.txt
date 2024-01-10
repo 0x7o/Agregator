@@ -1,0 +1,7 @@
+psycopg2-binary
+gunicorn
+djangorestframework
+Django
+uvicorn
+django-elasticsearch-dsl
+django_elasticsearch_dsl_drf
