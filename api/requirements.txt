@@ -5,3 +5,4 @@ Django
 uvicorn
 django-elasticsearch-dsl
 django_elasticsearch_dsl_drf
+transliterate

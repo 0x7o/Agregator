@@ -4,7 +4,7 @@ import os
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.environ["SECRET_KEY"]
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -22,7 +22,7 @@ INSTALLED_APPS = [
 ]
 
 ELASTICSEARCH_DSL = {
-    "default": {"hosts": "http://0.0.0.0:9200"},
+    "default": {"hosts": "http://elasticsearch:9200"},
 }
 
 MIDDLEWARE = [
@@ -56,9 +56,9 @@ TEMPLATES = [
 REST_FRAMEWORK = {
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
     "PAGE_SIZE": 20,
-    'DEFAULT_RENDERER_CLASSES': [
-        'rest_framework.renderers.JSONRenderer',
-    ]
+    "DEFAULT_RENDERER_CLASSES": [
+        "rest_framework.renderers.JSONRenderer",
+    ],
 }
 
 WSGI_APPLICATION = "api.wsgi.application"
