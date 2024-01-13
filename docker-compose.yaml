@@ -40,8 +40,6 @@ services:
       - DB_NAME=db
       - DB_USER=user
       - DB_PASS=z~LD<fq]xT9)b2BYC
-      - API_KEY=PLACE_YOUR_API_KEY
-      - SECRET_KEY=django-insecure-s6ws=i(cpsy0r72x$6&!l-6$vt0*1&6a_o4grrse7293^zwb!&
 
 volumes:
   postgres_data:

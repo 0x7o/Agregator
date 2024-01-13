@@ -3,7 +3,7 @@ import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = os.environ["SECRET_KEY"]
+SECRET_KEY = "django-insecure-s6ws=i(cpsy0r72x$6&!l-6$vt0*1&6a_o4grrse7293^zwb!&"
 DEBUG = False
 
 ALLOWED_HOSTS = []
