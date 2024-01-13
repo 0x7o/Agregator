@@ -21,7 +21,7 @@ services:
     volumes:
       - elasticsearch-data:/var/lib/elasticsearch/data
     ports:
-      - 9200:9200
+      - "9200:9200"
 
   api:
     restart: always
@@ -34,6 +34,7 @@ services:
     tty: true
     depends_on:
       - db
+      - elasticsearch
     environment:
       - DB_HOST=db
       - DB_NAME=db
